@@ -1,0 +1,22 @@
+<h1>Contact</h1>
+
+<div class="col-md-6">
+    
+    <div class="form-group form-group-lg">
+        <label>Email address*:</label>
+        {{input type="email" value=model.email class="form-control" placeholder="Type your email address." autofocus="autofocus"}}
+    </div>
+
+    <div class="form-group form-group-lg">
+        <label>Your message*:</label>
+        {{textarea value=model.message class="form-control" placeholder="Your message (at least 5 characters)." rows="7" autofocus="autofocus"}}
+    </div>
+    
+    <button disabled={{model.isDisabled}} {{action 'sendMessage' model}} class="btn btn-success">Send</button>
+</div>
+
+{{#if responseMessage}}
+<div class="alert alert-success">{{responseMessage}}</div>
+{{/if}}
+
+{{outlet}}
